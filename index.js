@@ -1,13 +1,18 @@
 var express = require('express'),
+    path = require("path"),
     fs = require("fs"),
     app = express(),
     port = 80,
     path = "d:/0projects",
     templPath = __dirname + "/templates/",
-    staticFile = "*.(js|css|html|html|jpg|txt|png|psd|gif|jpeg|md|db|DS_Store|svg|ttf|woff2|eot|zip)$";
+    staticFile = "*.(js|css|html|html|jpg|txt|png|psd|gif|jpeg|md|db|DS_Store|svg|ttf|woff2|eot|zip|json)";
 
 app.set('view engine', 'pug');
-app.use('/theme', express.static('theme'))
+app.use('/theme', express.static('theme'));
+
+// console.log('///////////////////////////')
+// console.log(path)
+// app.use(staticFile, express.static(path.join(__dirname, 'public')));
 
 app.get(staticFile, function (req, res) {
     var file = path + req.originalUrl;
