@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet', href='/theme/default/css/main.css', charset='utf-8')
+    title= projectName
+  body
+    .page
+      .page-path 
+        strong Path: 
+        span= projectName
+      table.table-file
+        thead
+          tr
+            td.name Name
+            td.date Last modified
+            td.size Size
+        for file in files
+          tr
+            td.name
+              if file.isFile
+                a.type-file(href=file.filePath)= file.fileName
+              else
+                a.type-dir(href=file.filePath)= file.fileName
+            td.date= file.modifiedTime
+            td.size= file.size
