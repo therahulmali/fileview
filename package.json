@@ -1,15 +1,31 @@
 {
-  "name": "File System",
+  "name": "node-file",
   "version": "1.0.0",
-  "description": "boot or reboot",
-  "main": "www.js",
+  "description": "file browser",
+  "main": "index.js",
+  "bin": {
+    "node-file": "www.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lygoods/node-file.git"
+  },
+  "keywords": [
+    "node",
+    "file"
+  ],
+  "author": "carl",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.14.0",
-    "pug": "^2.0.0-rc.4"
-  }
+  "bugs": {
+    "url": "https://github.com/lygoods/node-file/issues"
+  },
+  "homepage": "https://github.com/lygoods/node-file#readme"
 }
