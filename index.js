@@ -2,8 +2,8 @@ var express = require('express'),
     fs = require("fs"),
     app = express(),
     port = 80,
-    path = "/0works/0projects",
-    templPath = __dirname + "/../templates/",
+    path = "d:/0projects",
+    templPath = __dirname + "/templates/",
     staticFile = "*.(js|css|html|html|jpg|txt|png|psd|gif|jpeg|md|db|DS_Store|svg|ttf|woff2|eot|zip)$";
 
 app.set('view engine', 'pug');
@@ -55,6 +55,7 @@ app.get("/*", function (req, res) {
 });
 
 app.use(function (err, req, res, next) {
+    // console.log(err)
     res.status(500).send('<h1>Not Found!</h1>');
 });
 
