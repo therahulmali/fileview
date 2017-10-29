@@ -1,2 +1,2 @@
 # Fileview
-Fileview is a file system. You can use simple way to manage your files using web.
+File browsers on web. It's easy to browser your local file.
