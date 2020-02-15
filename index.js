@@ -158,6 +158,8 @@ var argResponse = function (args) {
                                 res.write("     <table class='table-file'>");
                                 res.write("         <thead><tr><td class='name'>Name</td><td class='date'>Date</td><td class='size'>Size</td></tr></thead>");
                                 res.write("         <tbody>");
+                                
+                                var pat = /(['"=<>])/g;  // Pattern to filter special characters in filename.
 
                                 for (var i = 0; i < data.length; i++) {
                                     var fileObj = data[i],
@@ -171,6 +173,11 @@ var argResponse = function (args) {
                                             name: fileObj,
                                             time: new Date(OBJState.mtime).toLocaleString()
                                         };
+                                    
+                                    // Filtering file name.
+                                    obj.path = obj.path.replace(pat,'');
+                                    obj.name = obj.name.replace(pat,'');
+                                    
                                     res.write("<tr><td class='name'><a class=type-" + (obj.isFile ? "file" : "dir") + " href=" + obj.path + ">" + obj.name + "</a></td><td class='date'>" + obj.time + "</td><td class='size'>" + obj.size + "</td></tr>");
                                 }
 
